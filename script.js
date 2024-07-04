@@ -1301,6 +1301,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function filterStudents() {
+    const query = document.getElementById("searchBar").value.toLowerCase();
+    const filteredData = students.filter((student) => {
+      return (
+        student.name.toLowerCase().includes(query) ||
+        student.email.toLowerCase().includes(query)
+      );
+    });
+    displayTable(filteredData);
+  }
+
   displayTable(students);
 
   window.sortTable = function (criterion) {
