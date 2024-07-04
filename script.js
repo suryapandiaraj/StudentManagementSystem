@@ -1267,8 +1267,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Create the name cell
       const nameCell = document.createElement("td");
       const img = document.createElement("img");
+      // img.className("student-image");
       img.src = student.img_src;
-      img.alt = `${student.first_name}'s photo`;
       nameCell.appendChild(img);
       nameCell.appendChild(
         document.createTextNode(student.first_name + " " + student.last_name)
@@ -1290,7 +1290,11 @@ document.addEventListener("DOMContentLoaded", function () {
       row.appendChild(marksCell);
 
       const passingCell = document.createElement("td");
-      passingCell.textContent = student.passing;
+      if (student.passing) {
+        passingCell.textContent = "Pass";
+      } else {
+        passingCell.textContent = "Fail";
+      }
       row.appendChild(passingCell);
 
       const emailCell = document.createElement("td");
